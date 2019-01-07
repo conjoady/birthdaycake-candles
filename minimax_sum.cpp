@@ -6,8 +6,26 @@ vector<string> split_string(string);
 
 // Complete the miniMaxSum function below.
 void miniMaxSum(vector<int> arr) {
-
-
+    long min = arr[0];
+    long max = arr[0];
+    long long minsum = 0;
+    long long maxsum = 0;
+    
+    for (int i = 1; i < 5; i++){
+        if (arr[i] < min)
+            min = arr[i];
+        if (arr[i] > max)
+            max = arr[i];
+    }
+    
+    for (int i = 0; i < 5; i++)
+        minsum += arr[i];
+    minsum -= max;
+    for (int i = 0; i<5; i++)
+        maxsum += arr[i];
+    maxsum -= min;
+    
+    printf("%lld %lld", minsum, maxsum);
 }
 
 int main()
