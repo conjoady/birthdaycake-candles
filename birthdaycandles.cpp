@@ -6,8 +6,18 @@ vector<string> split_string(string);
 
 // Complete the birthdayCakeCandles function below.
 int birthdayCakeCandles(vector<int> ar) {
-
-
+    int age = ar.size();
+    int maxsize = ar[0];
+    int count = 0;
+    
+    for (int i = 1; i < age; i++)
+        if (ar[i] > maxsize)
+            maxsize = ar[i];
+    for (int i = 0; i < age; i++)
+        if (ar[i] == maxsize)
+            count++;
+    return count;
+    
 }
 
 int main()
