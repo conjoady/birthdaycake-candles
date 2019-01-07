@@ -1,0 +1,54 @@
+import java.io.*;
+import java.math.*;
+import java.text.*;
+import java.util.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    /*
+     * Complete the plusMinus function below.
+     */
+    static void plusMinus(int[] arr) {
+        /*
+         * Write your code here.
+         */
+        double positive = 0, negative = 0, zero = 0;
+        double Length = (double)arr.length;
+        
+        for (int i = 0; i < Length; i++){
+            int checker = arr[i];
+            if (checker > 0)
+                positive ++;
+            else if(checker < 0)
+                negative ++;
+            else
+                zero++;
+            
+        }
+        positive = (double)(positive / Length);
+        negative = (double)(negative / Length);
+        zero = (double)(zero / Length);
+        
+        System.out.println(positive + " \n" + negative + " \n" + zero);
+        
+
+    }
+
+    private static final Scanner scan = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        int n = Integer.parseInt(scan.nextLine().trim());
+
+        int[] arr = new int[n];
+
+        String[] arrItems = scan.nextLine().split(" ");
+
+        for (int arrItr = 0; arrItr < n; arrItr++) {
+            int arrItem = Integer.parseInt(arrItems[arrItr].trim());
+            arr[arrItr] = arrItem;
+        }
+
+        plusMinus(arr);
+    }
+}
